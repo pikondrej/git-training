@@ -13,13 +13,6 @@ fail () {
 # Check if given file exists
 [ -f "$1" ] || fail "${1}: file not found"
 
-# Check if meld is installed
-which meld || fail """
-'meld' is not installed and is necessarry for this script to work.
-Please install it on your system:
-$ sudo apt-get install meld
-"""
-
 FILE="$1"
 FILE_TMP="${FILE}.git-split"
 
