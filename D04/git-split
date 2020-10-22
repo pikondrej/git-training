@@ -1,16 +1,24 @@
 #!/bin/bash
 
-[ $# -ne 1 ] && echo "USAGE: $0 <file>" && exit 1
+# Print message and exit with code 1
+# Arguments:
+#   <MESSAGE TO PRINT>
+fail () {
+	echo "$@"
+	exit 1
+}
+
+[ $# -ne 1 ] && fail "USAGE: $0 <file>"
 
 # Check if given file exists
-[ -f "$1" ] || (echo "${1}: file not found" && exit 1)
+[ -f "$1" ] || fail "${1}: file not found"
 
 # Check if meld is installed
-which meld || (echo """
+which meld || fail """
 'meld' is not installed and is necessarry for this script to work.
 Please install it on your system:
 $ sudo apt-get install meld
-""" && exit 1)
+"""
 
 FILE="$1"
 FILE_TMP="${FILE}.git-split"
