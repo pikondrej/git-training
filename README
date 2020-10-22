@@ -1,0 +1,35 @@
+Clean up this branch
+
+Create new branch for the clean up <user>_D04_clean from this branch. The goal
+is to have nice looking git history and each commit.
+
+When merging two commits into one, take the commit message of the commit you're
+merging into. For example merging A into B, use commit message of B.
+
+Do NOT change commit messages in any way, except where it is told to add the
+prefix. Each commit has to be clean - the changes made in it has to match the
+commit message.
+
+
+`git-split: fixup: Check parameter and print usage`
+  should be merged into the
+`git-split: Check parameter and print usage`
+  to cover up my incompetence
+
+
+`git-split: Check parameter and print usage`
+  should be placed into
+`Add initial version`
+
+
+  Some patches are missing the prefix "git-split:", doesn't look nice in log, add it
+
+
+`Revert "git-split: Add check if meld is installed"`
+`git-split: Add check if meld is installed`
+  remove those, no point in having patch and it's revert in history
+
+
+`Add comments`
+  Spread changes in this commit into others so it looks like we started commenting
+  from the very beggining
