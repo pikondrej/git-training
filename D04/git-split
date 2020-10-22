@@ -24,4 +24,5 @@ FILE_TMP="${FILE}.git-split"
 meld "${FILE}" "${FILE_TMP}"
 
 # Remove temporary file if all changes applied to the original
-diff -q "${FILE}" "${FILE_TMP}" &> /dev/null && rm "${FILE_TMP}"
+diff -q "${FILE}" "${FILE_TMP}" &> /dev/null && rm "${FILE_TMP}" \
+	&& echo "Files are identical, git-split finished!"
