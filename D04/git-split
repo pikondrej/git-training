@@ -1,0 +1,8 @@
+#!/bin/bash
+
+FILE="$1"
+FILE_TMP="${FILE}.git-split"
+
+[ -f "${FILE_TMP}" ] || (cp "${FILE}" "${FILE_TMP}" && git checkout -- "${FILE}")
+
+meld "${FILE}" "${FILE_TMP}"
