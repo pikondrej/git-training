@@ -6,3 +6,6 @@ FILE_TMP="${FILE}.git-split"
 [ -f "${FILE_TMP}" ] || (cp "${FILE}" "${FILE_TMP}" && git checkout -- "${FILE}")
 
 meld "${FILE}" "${FILE_TMP}"
+
+# Remove temporary file if all changes applied to the original
+diff -q "${FILE}" "${FILE_TMP}" &> /dev/null && rm "${FILE_TMP}"
