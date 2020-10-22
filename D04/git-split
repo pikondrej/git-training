@@ -5,8 +5,11 @@
 FILE="$1"
 FILE_TMP="${FILE}.git-split"
 
+# Create temporary copy of the given file and revert unstaged changes in the
+# original. Do so only if the temporary file doesn't exist.
 [ -f "${FILE_TMP}" ] || (cp "${FILE}" "${FILE_TMP}" && git checkout -- "${FILE}")
 
+# Let user compare and apply some changes using meld
 meld "${FILE}" "${FILE_TMP}"
 
 # Remove temporary file if all changes applied to the original
