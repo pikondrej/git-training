@@ -2,6 +2,9 @@
 
 [ $# -ne 1 ] && echo "USAGE: $0 <file>" && exit 1
 
+# Check if given file exists
+[ -f "$1" ] || (echo "${1}: file not found" && exit 1)
+
 # Check if meld is installed
 which meld || (echo """
 'meld' is not installed and is necessarry for this script to work.
